@@ -206,8 +206,6 @@ impl TypeReader {
     }
 
     pub fn expect_type_ref(&'static self, type_ref: &TypeRef) -> TypeDef {
-        // TODO: This is broken...
-        println!("{}", type_ref.type_name());
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve().row]
                 .get(type_ref.name())
