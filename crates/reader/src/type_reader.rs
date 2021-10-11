@@ -100,6 +100,10 @@ impl TypeReader {
         self.types.namespaces()
     }
 
+    pub fn clear_imports(&mut self) {
+        self.types.namespaces.values_mut().for_each(|tree|tree.include = false);
+    }
+
     pub fn import_namespace(&mut self, namespace: &str) -> bool {
         // TODO: borrow hackery going on here...
         if let Some(namespace) = Self::get().types.get_namespace(namespace) {
@@ -202,6 +206,8 @@ impl TypeReader {
     }
 
     pub fn expect_type_ref(&'static self, type_ref: &TypeRef) -> TypeDef {
+        // TODO: This is broken...
+        println!("{}", type_ref.type_name());
         if let ResolutionScope::TypeRef(scope) = type_ref.scope() {
             self.nested[&scope.resolve().row]
                 .get(type_ref.name())

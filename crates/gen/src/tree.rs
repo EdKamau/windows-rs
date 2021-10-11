@@ -24,13 +24,17 @@ fn gen_namespaces<'a>(
     namespaces.iter().map(move |(name, tree)| {
         if tree.include {
             let name = to_ident(name);
-
             let tokens = namespace_iter(tree);
+            // TODO: maybe move into Gen helper and make it relative to containing crate
+            // so if this crate only contains Windows.UI then the feature name will omit 
+            // the "Windows_UI" portion of the feature name.
+            let feature = namespace_feature(tree.namespace);
 
             quote! {
                 // TODO: https://github.com/microsoft/windows-rs/issues/212
                 // TODO: https://github.com/microsoft/win32metadata/issues/380
                 #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+                #[cfg(feature = #feature)]
                 pub mod #name {
                     #(#tokens)*
                 }
@@ -39,6 +43,10 @@ fn gen_namespaces<'a>(
              TokenStream::new()
          }
     })
+}
+
+fn namespace_feature(namespace: &str) -> String {
+    namespace.replace('.', "_").into()
 }
 
 fn gen_type_entry(entry: &TypeEntry, gen: &Gen) -> TokenStream {

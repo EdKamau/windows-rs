@@ -1,0 +1,7 @@
+[package]
+name = "windows_crates"
+version = "0.22.0"
+edition = "2018"
+
+[dependencies]
+reader = { package = "windows_reader", path = "../reader", version = "0.21.1" }
