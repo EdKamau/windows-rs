@@ -3,7 +3,7 @@ use super::*;
 pub enum Gen {
     Absolute,
     Relative(&'static str),
-    Crate((&'static str, Vec<&'static str>))
+    Crate((&'static str, Vec<&'static str>, std::collections::BTreeSet<&'static str>))
 }
 
 impl Gen {
@@ -20,15 +20,25 @@ impl Gen {
                 tokens
             }
             Self::Relative(relative) => gen_relative(namespace, relative),
-            Self::Crate((relative, includes)) => {
+            Self::Crate((relative, includes, crates)) => {
                 for include in includes {
                     if contains_namespace(namespace, include) {
                         return gen_relative(namespace, relative);
                     }
                 }
 
-                // TODO: need to use relative path within module so "windows_foundation::Collections
-                return format!("::{}::", namespace.replace('.', "_").to_lowercase()).into()
+                for dependency in crates {
+                    if contains_namespace(dependency, namespace) {
+                        let mut result = format!("::{}::", dependency.replace('.', "_").to_lowercase());
+                        if namespace.len() > dependency.len() {
+                            result.push_str(&namespace[dependency.len() + 1..].replace('.', "::"));
+                            result.push_str("::");
+                        }
+                        return result.into();
+                    }
+                }
+
+                panic!("Unexpected namespace relative:{} namespace:{}", relative, namespace);
             }
         }
     }

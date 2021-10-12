@@ -1,19 +1,21 @@
 use super::*;
 
+// TODO: move crate-specific generation in the cates project?
+
 // TODO: use "module" to shorten feature names and collapse namespaces down to be relative to module/crate.
-pub fn gen_crate_source_tree(module:&str, includes: &Vec<&'static str>) -> TokenStream {
+pub fn gen_crate_source_tree(module:&str, includes: &Vec<&'static str>, crates: &std::collections::BTreeSet<&'static str>) -> TokenStream {
     let reader = TypeReader::get();
-    gen_crate_namespaces( includes, &reader.types.namespaces)
+    gen_crate_namespaces( includes, &reader.types.namespaces, crates)
 }
 
-fn gen_crate_namespaces( includes: &Vec<&'static str>, namespaces: & BTreeMap<&'static str, TypeTree>) -> TokenStream {
+fn gen_crate_namespaces( includes: &Vec<&'static str>, namespaces: & BTreeMap<&'static str, TypeTree>, crates: &std::collections::BTreeSet<&'static str>) -> TokenStream {
     let mut tokens = TokenStream::with_capacity();
 
     for (name, tree) in namespaces {
         if tree.include && includes.iter().any(|namespace|contains_namespace(tree.namespace, namespace)) {
-            let gen = Gen::Crate((tree.namespace, includes.to_vec())); // TODO: to_vec?!
+            let gen = Gen::Crate((tree.namespace, includes.clone(), crates.clone())); // TODO: clone?!
             let name = to_ident(name);
-            let nested = gen_crate_namespaces( includes, &tree.namespaces);
+            let nested = gen_crate_namespaces( includes, &tree.namespaces, crates);
             let types =     tree.types
             .iter()
             .map(move |t| gen_type_entry(t.1, &gen));

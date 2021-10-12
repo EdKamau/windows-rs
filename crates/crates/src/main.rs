@@ -14,7 +14,9 @@ fn main() -> std::io::Result<()> {
     path.push("publish.bat");
     let mut file = std::fs::File::create(&path)?;
 
-    for namespace in namespaces() {
+    let crates = namespaces();
+
+    for namespace in &crates {
         let crate_name = namespace.replace('.', "-").to_lowercase();
         println!("{}", crate_name);
 
@@ -22,6 +24,7 @@ fn main() -> std::io::Result<()> {
             &output,
             &crate_name,
             namespace,
+            &crates,
             env!("CARGO_PKG_VERSION"),
         )?;
 
@@ -52,10 +55,14 @@ fn namespaces() -> std::collections::BTreeSet<&'static str> {
                 if namespace.starts_with("Windows.Win32.") {
                     if let Some(third) = namespace[first + 1 + second + 1..].find('.') {
                         set.insert(&namespace[..first + 1 + second + 1 + third]);    
+                    } else {
+                        set.insert(namespace);
                     }
                 } else {
                     set.insert(&namespace[..first + 1 + second]);
                 }
+            } else {
+                set.insert(namespace);
             }
         }
     }
@@ -69,6 +76,7 @@ fn gen_crate(
     output: &std::path::Path,
     crate_name: &str,
     module: &'static str,
+    crates: &std::collections::BTreeSet<&'static str>,
     version: &str,
 ) -> std::io::Result<()> {
     let mut path = std::path::PathBuf::from(output);
@@ -112,7 +120,7 @@ windows = {{ version = "0.21", default-features = false }}
 
     for namespace in reader.namespaces() {
         if gen::contains_namespace(module, namespace) {
-            println!("- {}", namespace);
+            //println!("- {}", namespace);
             namespaces.push(namespace);
         }
     }
@@ -124,10 +132,7 @@ windows = {{ version = "0.21", default-features = false }}
         reader.import_namespace(namespace);
     }
 
-    // TODO: walk tree and find dependncies to build cargo.toml 
-
-    // TODO: make sure this excludes dependencies
-    let tree = gen::gen_crate_source_tree(module, &namespaces);
+    let tree = gen::gen_crate_source_tree(module, &namespaces, crates);
 
     file.write_all(tree.into_string().as_bytes())?;
     drop(file);
