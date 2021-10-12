@@ -5,28 +5,34 @@ use super::*;
 // TODO: use "module" to shorten feature names and collapse namespaces down to be relative to module/crate.
 pub fn gen_crate_source_tree(module:&str, includes: &Vec<&'static str>, crates: &std::collections::BTreeSet<&'static str>) -> TokenStream {
     let reader = TypeReader::get();
-    gen_crate_namespaces( includes, &reader.types.namespaces, crates)
+    gen_crate_namespaces(module, includes, &reader.types.namespaces, crates)
 }
 
-fn gen_crate_namespaces( includes: &Vec<&'static str>, namespaces: & BTreeMap<&'static str, TypeTree>, crates: &std::collections::BTreeSet<&'static str>) -> TokenStream {
+fn gen_crate_namespaces(module:&str, includes: &Vec<&'static str>, namespaces: & BTreeMap<&'static str, TypeTree>, crates: &std::collections::BTreeSet<&'static str>) -> TokenStream {
     let mut tokens = TokenStream::with_capacity();
 
     for (name, tree) in namespaces {
         if tree.include && includes.iter().any(|namespace|contains_namespace(tree.namespace, namespace)) {
             let gen = Gen::Crate((tree.namespace, includes.clone(), crates.clone())); // TODO: clone?!
             let name = to_ident(name);
-            let nested = gen_crate_namespaces( includes, &tree.namespaces, crates);
+            let nested = gen_crate_namespaces(module, includes, &tree.namespaces, crates);
             let types =     tree.types
             .iter()
             .map(move |t| gen_type_entry(t.1, &gen));
 
-            tokens.combine(&quote! {
-                #[allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-                pub mod #name {
+            if tree.namespace.len() > module.len() {
+                tokens.combine(&quote! {
+                    pub mod #name {
+                        #nested
+                        #(#types)*
+                    }
+                });
+            } else {
+                tokens.combine(&quote! {
                     #nested
                     #(#types)*
-                }
-            });
+                });
+            }
          }
     }
 
