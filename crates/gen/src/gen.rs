@@ -22,7 +22,7 @@ impl Gen {
             Self::Relative(relative) => gen_relative(namespace, relative),
             Self::Crate((relative, includes)) => {
                 for include in includes {
-                    if include == &namespace {
+                    if contains_namespace(namespace, include) {
                         return gen_relative(namespace, relative);
                     }
                 }

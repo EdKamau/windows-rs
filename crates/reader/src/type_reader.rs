@@ -104,13 +104,6 @@ impl TypeReader {
         self.types.clear_imports();
     }
 
-    // Includes types without tracking down dependencies
-    // TODO: may need to keep track of those dependencies so that we can add them as module deps
-    pub fn include_namespace(&mut self, namespace: &str) {
-        self.types.get_namespace_mut(namespace).unwrap()
-            .types.values_mut().for_each(|entry|entry.include = TypeInclude::Full);
-    }
-
     pub fn import_namespace(&mut self, namespace: &str) -> bool {
         // TODO: still need this get() here?
         if let Some(namespace) = Self::get().types.get_namespace(namespace) {

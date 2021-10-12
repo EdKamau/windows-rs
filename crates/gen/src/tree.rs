@@ -10,7 +10,7 @@ fn gen_crate_namespaces( includes: &Vec<&'static str>, namespaces: & BTreeMap<&'
     let mut tokens = TokenStream::with_capacity();
 
     for (name, tree) in namespaces {
-        if tree.include {
+        if tree.include && includes.iter().any(|namespace|contains_namespace(tree.namespace, namespace)) {
             let gen = Gen::Crate((tree.namespace, includes.to_vec())); // TODO: to_vec?!
             let name = to_ident(name);
             let nested = gen_crate_namespaces( includes, &tree.namespaces);
@@ -29,6 +29,14 @@ fn gen_crate_namespaces( includes: &Vec<&'static str>, namespaces: & BTreeMap<&'
     }
 
     tokens
+}
+
+pub fn contains_namespace(module: &str, namespace: &str) -> bool {
+    if module == "Windows.UI" && namespace.starts_with("Windows.UI.Xaml") {
+        return false;
+    }
+
+    namespace == module || namespace.starts_with(&format!("{}.", module))
 }
 
 pub fn gen_source_tree() -> TokenStream {

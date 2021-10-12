@@ -111,13 +111,8 @@ windows = {{ version = "0.21", default-features = false }}
     let mut namespaces = Vec::new();
 
     for namespace in reader.namespaces() {
-        if module == "Windows.UI" && namespace.starts_with("Windows.UI.Xaml") {
-            continue;
-        }
-
-        if namespace == module || namespace.starts_with(&format!("{}.", module)) {
+        if gen::contains_namespace(module, namespace) {
             println!("- {}", namespace);
-
             namespaces.push(namespace);
         }
     }
@@ -126,7 +121,7 @@ windows = {{ version = "0.21", default-features = false }}
 
     for namespace in &namespaces {
         // TODO: use import here so we can track dependencies
-        reader.include_namespace(namespace);
+        reader.import_namespace(namespace);
     }
 
     // TODO: walk tree and find dependncies to build cargo.toml 
