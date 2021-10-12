@@ -1,9 +1,10 @@
 use std::io::prelude::*;
 
 fn main() -> std::io::Result<()> {
-    let output = std::env::args()
-        .nth(1)
-        .expect("Expected one command line argument for output directory");
+    // let output = std::env::args()
+    //     .nth(1)
+    //     .expect("Expected one command line argument for output directory");
+    let output = "C:\\temp";
 
     let output = std::path::Path::new(&output);
     let _ = std::fs::remove_dir_all(output);
@@ -107,7 +108,6 @@ windows = {{ version = "0.21", default-features = false }}
     )?;
 
     let reader = reader::TypeReader::get_mut();
-    reader.clear_imports();
     let mut namespaces = Vec::new();
 
     for namespace in reader.namespaces() {
@@ -122,13 +122,17 @@ windows = {{ version = "0.21", default-features = false }}
         }
     }
 
-    let reader = reader::TypeReader::get_mut();
+    reader.clear_imports();
 
-    for namespace in namespaces {
-        reader.import_namespace(namespace);
+    for namespace in &namespaces {
+        // TODO: use import here so we can track dependencies
+        reader.include_namespace(namespace);
     }
 
-    let tree = gen::gen_source_tree();
+    // TODO: walk tree and find dependncies to build cargo.toml 
+
+    // TODO: make sure this excludes dependencies
+    let tree = gen::gen_crate_source_tree(module, &namespaces);
 
     file.write_all(tree.into_string().as_bytes())?;
     drop(file);

@@ -57,6 +57,12 @@ impl TypeTree {
         self.types.entry(name).or_default().def.push(def);
     }
 
+    pub fn clear_imports(&mut self) {
+        self.include = false;
+        self.types.values_mut().for_each(|entry|entry.include = TypeInclude::None);
+        self.namespaces.values_mut().for_each(|tree|tree.clear_imports());
+    }
+
     // TODO: slow method - remove or make this an iterator somehow?
     pub fn namespaces(&self) -> Vec<&'static str> {
         let mut namespaces = Vec::new();
