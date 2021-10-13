@@ -4,7 +4,7 @@ fn main() -> std::io::Result<()> {
     // let output = std::env::args()
     //     .nth(1)
     //     .expect("Expected one command line argument for output directory");
-    let output = "C:\\temp";
+    let output = r#"c:\git\windows-apis-rs\crates"#;
 
     let output = std::path::Path::new(&output);
     let _ = std::fs::remove_dir_all(output);
@@ -72,7 +72,7 @@ fn namespaces() -> std::collections::BTreeSet<&'static str> {
     set
 }
 
-fn dependencies(module: &str, crates: &std::collections::BTreeSet<&'static str>,) -> Vec<&'static str> {
+fn dependencies(module: &str) -> Vec<&'static str> {
     let mut dependencies = Vec::new();
 
     fn walk(namespaces: & std::collections::BTreeMap<&'static str, reader::TypeTree>, module: &str, dependencies: &mut Vec<&'static str>) {
@@ -145,9 +145,8 @@ windows = {{ version = "0.21", default-features = false }}"#,
         .as_bytes(),
     )?;
 
-    for dependency in dependencies(module, crates) {
+    for dependency in dependencies(module) {
         if crates.contains(dependency) {
-            println!("  {}", dependency);
             let crate_name = dependency.replace('.', "-").to_lowercase();
 
             file.write_all(

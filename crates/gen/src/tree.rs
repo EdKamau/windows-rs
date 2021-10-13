@@ -12,7 +12,11 @@ fn gen_crate_namespaces(module:&str, includes: &Vec<&'static str>, namespaces: &
     let mut tokens = TokenStream::with_capacity();
 
     for (name, tree) in namespaces {
-        if tree.include && includes.iter().any(|namespace|contains_namespace(tree.namespace, namespace)) {
+        if module == "Windows.UI" && tree.namespace.starts_with("Windows.UI.Xaml") {
+            continue;
+        }
+
+        if tree.namespace == module || tree.namespace.starts_with(&format!("{}.", module)) {
             let gen = Gen::Crate((tree.namespace, includes.clone(), crates.clone())); // TODO: clone?!
             let name = to_ident(name);
             let nested = gen_crate_namespaces(module, includes, &tree.namespaces, crates);
@@ -33,6 +37,8 @@ fn gen_crate_namespaces(module:&str, includes: &Vec<&'static str>, namespaces: &
                     #(#types)*
                 });
             }
+         } else {
+            tokens.combine(&gen_crate_namespaces(module, includes, &tree.namespaces, crates));
          }
     }
 
