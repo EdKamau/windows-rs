@@ -85,6 +85,8 @@ impl TypeName {
         Self::from_const("Windows.Win32.System.SystemServices", "ULARGE_INTEGER");
     pub const IRestrictedErrorInfo: Self =
         Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
+    pub const IDispatch: Self =
+        Self::from_const("Windows.Win32.System.OleAutomation", "IDispatch");
 
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }

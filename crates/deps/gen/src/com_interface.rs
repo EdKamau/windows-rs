@@ -4,6 +4,14 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
     let name = gen_type_name(def, gen);
     let guid = gen_type_guid(def, gen);
 
+    if let Some(guid) = def.dispatch_interface() {
+        let guid = gen_guid(&guid);
+
+        return quote! {
+            pub const #name: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(#guid);
+        };
+    }
+
     if include == TypeInclude::Full {
         let abi_name = gen_abi_name(def, gen);
 

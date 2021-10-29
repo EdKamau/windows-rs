@@ -571,6 +571,20 @@ impl TypeDef {
             .flat_map(|interface| interface.methods().map(|method| method.name()))
             .collect()
     }
+
+    pub fn dispatch_interface(&self) -> Option<GUID> {
+        if self.methods().next().is_some() {
+            return None;
+        }
+
+        if let Some(base) = self.interfaces().next() {
+            if base.type_name() == TypeName::IDispatch {
+                return GUID::from_attributes(self.attributes());
+            }
+        }
+
+        None
+    }
 }
 
 struct Bases(TypeDef);
