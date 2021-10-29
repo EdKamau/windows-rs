@@ -2920,13 +2920,216 @@ pub struct IDownloadCompletedCallback_abi(
         callbackargs: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
 );
-pub const IDownloadCompletedCallbackArgs: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct IDownloadCompletedCallbackArgs(::windows::runtime::IUnknown);
+impl IDownloadCompletedCallbackArgs {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for IDownloadCompletedCallbackArgs {
+    type Vtable = IDownloadCompletedCallbackArgs_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
         4199963427,
         18828,
         18336,
         [151, 157, 231, 213, 177, 129, 51, 96],
     );
+}
+impl ::std::convert::From<IDownloadCompletedCallbackArgs> for ::windows::runtime::IUnknown {
+    fn from(value: IDownloadCompletedCallbackArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IDownloadCompletedCallbackArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for IDownloadCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &IDownloadCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<IDownloadCompletedCallbackArgs> for super::OleAutomation::IDispatch {
+    fn from(value: IDownloadCompletedCallbackArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&IDownloadCompletedCallbackArgs> for super::OleAutomation::IDispatch {
+    fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for IDownloadCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for &IDownloadCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDownloadCompletedCallbackArgs_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
+);
 #[repr(transparent)]
 #[derive(
     :: std :: cmp :: PartialEq,
@@ -4925,13 +5128,216 @@ pub struct IInstallationCompletedCallback_abi(
         callbackargs: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
 );
-pub const IInstallationCompletedCallbackArgs: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct IInstallationCompletedCallbackArgs(::windows::runtime::IUnknown);
+impl IInstallationCompletedCallbackArgs {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for IInstallationCompletedCallbackArgs {
+    type Vtable = IInstallationCompletedCallbackArgs_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
         621682950,
         36603,
         18181,
         [150, 83, 239, 19, 197, 129, 182, 161],
     );
+}
+impl ::std::convert::From<IInstallationCompletedCallbackArgs> for ::windows::runtime::IUnknown {
+    fn from(value: IInstallationCompletedCallbackArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInstallationCompletedCallbackArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for IInstallationCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &IInstallationCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<IInstallationCompletedCallbackArgs> for super::OleAutomation::IDispatch {
+    fn from(value: IInstallationCompletedCallbackArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&IInstallationCompletedCallbackArgs> for super::OleAutomation::IDispatch {
+    fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for IInstallationCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for &IInstallationCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInstallationCompletedCallbackArgs_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
+);
 #[repr(transparent)]
 #[derive(
     :: std :: cmp :: PartialEq,
@@ -6414,13 +6820,216 @@ pub struct ISearchCompletedCallback_abi(
         callbackargs: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
 );
-pub const ISearchCompletedCallbackArgs: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct ISearchCompletedCallbackArgs(::windows::runtime::IUnknown);
+impl ISearchCompletedCallbackArgs {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for ISearchCompletedCallbackArgs {
+    type Vtable = ISearchCompletedCallbackArgs_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
         2801837620,
         10320,
         19527,
         [147, 138, 158, 75, 110, 90, 249, 166],
     );
+}
+impl ::std::convert::From<ISearchCompletedCallbackArgs> for ::windows::runtime::IUnknown {
+    fn from(value: ISearchCompletedCallbackArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISearchCompletedCallbackArgs> for ::windows::runtime::IUnknown {
+    fn from(value: &ISearchCompletedCallbackArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for ISearchCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &ISearchCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<ISearchCompletedCallbackArgs> for super::OleAutomation::IDispatch {
+    fn from(value: ISearchCompletedCallbackArgs) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&ISearchCompletedCallbackArgs> for super::OleAutomation::IDispatch {
+    fn from(value: &ISearchCompletedCallbackArgs) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for ISearchCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for &ISearchCompletedCallbackArgs
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISearchCompletedCallbackArgs_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
+);
 #[repr(transparent)]
 #[derive(
     :: std :: cmp :: PartialEq,

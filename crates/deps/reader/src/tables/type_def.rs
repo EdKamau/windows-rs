@@ -573,13 +573,13 @@ impl TypeDef {
     }
 
     pub fn dispatch_interface(&self) -> Option<GUID> {
-        if self.methods().next().is_some() {
-            return None;
-        }
-
-        if let Some(base) = self.interfaces().next() {
-            if base.type_name() == TypeName::IDispatch {
-                return GUID::from_attributes(self.attributes());
+        if self.methods().next().is_none() {
+            if self.name().starts_with("Disp") {
+                if let Some(base) = self.interfaces().next() {
+                    if base.type_name() == TypeName::IDispatch {
+                        return GUID::from_attributes(self.attributes());
+                    }
+                }
             }
         }
 

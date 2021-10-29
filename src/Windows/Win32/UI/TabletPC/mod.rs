@@ -3198,11 +3198,212 @@ pub struct IHandwrittenTextInsertion_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
-pub const IInk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    66643217,
-    17313,
-    4563,
-    [139, 182, 0, 128, 199, 214, 186, 213],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct IInk(::windows::runtime::IUnknown);
+impl IInk {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for IInk {
+    type Vtable = IInk_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        66643217,
+        17313,
+        4563,
+        [139, 182, 0, 128, 199, 214, 186, 213],
+    );
+}
+impl ::std::convert::From<IInk> for ::windows::runtime::IUnknown {
+    fn from(value: IInk) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&IInk> for ::windows::runtime::IUnknown {
+    fn from(value: &IInk) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IInk {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IInk {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<IInk> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: IInk) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&IInk> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &IInk) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for IInk
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &IInk
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInk_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -21944,11 +22145,212 @@ pub struct IRealTimeStylusSynchronization_abi(
         lock: RealTimeStylusLockType,
     ) -> ::windows::runtime::HRESULT,
 );
-pub const ISketchInk: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3025548936,
-    39147,
-    17990,
-    [178, 121, 68, 218, 20, 212, 87, 72],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct ISketchInk(::windows::runtime::IUnknown);
+impl ISketchInk {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for ISketchInk {
+    type Vtable = ISketchInk_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        3025548936,
+        39147,
+        17990,
+        [178, 121, 68, 218, 20, 212, 87, 72],
+    );
+}
+impl ::std::convert::From<ISketchInk> for ::windows::runtime::IUnknown {
+    fn from(value: ISketchInk) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&ISketchInk> for ::windows::runtime::IUnknown {
+    fn from(value: &ISketchInk) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISketchInk {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISketchInk {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<ISketchInk> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: ISketchInk) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&ISketchInk> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &ISketchInk) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for ISketchInk
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &ISketchInk
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ISketchInk_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -27228,60 +27630,1892 @@ pub const WM_TABLET_DELETED: u32 = 713u32;
 pub const WM_TABLET_FLICK: u32 = 715u32;
 pub const WM_TABLET_MAXOFFSET: u32 = 32u32;
 pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
-pub const _IInkCollectorEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    296059890,
-    28973,
-    20458,
-    [171, 207, 171, 74, 243, 142, 160, 107],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkCollectorEvents(::windows::runtime::IUnknown);
+impl _IInkCollectorEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkCollectorEvents {
+    type Vtable = _IInkCollectorEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        296059890,
+        28973,
+        20458,
+        [171, 207, 171, 74, 243, 142, 160, 107],
+    );
+}
+impl ::std::convert::From<_IInkCollectorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkCollectorEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkCollectorEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkCollectorEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkCollectorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkCollectorEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkCollectorEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: _IInkCollectorEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkCollectorEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: &_IInkCollectorEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkCollectorEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkCollectorEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkCollectorEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IInkEditEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3820009367,
-    42798,
-    18139,
-    [160, 215, 108, 158, 186, 142, 155, 188],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkEditEvents(::windows::runtime::IUnknown);
+impl _IInkEditEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkEditEvents {
+    type Vtable = _IInkEditEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        3820009367,
+        42798,
+        18139,
+        [160, 215, 108, 158, 186, 142, 155, 188],
+    );
+}
+impl ::std::convert::From<_IInkEditEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkEditEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkEditEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkEditEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkEditEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkEditEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkEditEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: _IInkEditEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkEditEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &_IInkEditEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkEditEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkEditEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkEditEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IInkEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1115363429,
-    51775,
-    18330,
-    [131, 169, 15, 66, 15, 42, 0, 115],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkEvents(::windows::runtime::IUnknown);
+impl _IInkEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkEvents {
+    type Vtable = _IInkEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        1115363429,
+        51775,
+        18330,
+        [131, 169, 15, 66, 15, 42, 0, 115],
+    );
+}
+impl ::std::convert::From<_IInkEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: _IInkEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &_IInkEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IInkOverlayEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    823630697,
-    58723,
-    18590,
-    [177, 111, 113, 47, 30, 138, 6, 81],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkOverlayEvents(::windows::runtime::IUnknown);
+impl _IInkOverlayEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkOverlayEvents {
+    type Vtable = _IInkOverlayEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        823630697,
+        58723,
+        18590,
+        [177, 111, 113, 47, 30, 138, 6, 81],
+    );
+}
+impl ::std::convert::From<_IInkOverlayEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkOverlayEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkOverlayEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkOverlayEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkOverlayEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkOverlayEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkOverlayEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: _IInkOverlayEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkOverlayEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &_IInkOverlayEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkOverlayEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkOverlayEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkOverlayEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IInkPictureEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1627344878,
-    8959,
-    17540,
-    [172, 193, 211, 8, 217, 205, 126, 163],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkPictureEvents(::windows::runtime::IUnknown);
+impl _IInkPictureEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkPictureEvents {
+    type Vtable = _IInkPictureEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        1627344878,
+        8959,
+        17540,
+        [172, 193, 211, 8, 217, 205, 126, 163],
+    );
+}
+impl ::std::convert::From<_IInkPictureEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkPictureEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkPictureEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkPictureEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkPictureEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkPictureEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkPictureEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: _IInkPictureEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkPictureEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &_IInkPictureEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkPictureEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkPictureEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkPictureEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IInkRecognitionEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    398256431,
-    11809,
-    18429,
-    [157, 51, 60, 106, 251, 253, 140, 89],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkRecognitionEvents(::windows::runtime::IUnknown);
+impl _IInkRecognitionEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkRecognitionEvents {
+    type Vtable = _IInkRecognitionEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        398256431,
+        11809,
+        18429,
+        [157, 51, 60, 106, 251, 253, 140, 89],
+    );
+}
+impl ::std::convert::From<_IInkRecognitionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkRecognitionEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkRecognitionEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkRecognitionEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for _IInkRecognitionEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &_IInkRecognitionEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkRecognitionEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: _IInkRecognitionEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkRecognitionEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: &_IInkRecognitionEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkRecognitionEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkRecognitionEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkRecognitionEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IInkStrokesEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4080030700,
-    23845,
-    17162,
-    [146, 143, 118, 166, 73, 29, 222, 21],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IInkStrokesEvents(::windows::runtime::IUnknown);
+impl _IInkStrokesEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IInkStrokesEvents {
+    type Vtable = _IInkStrokesEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        4080030700,
+        23845,
+        17162,
+        [146, 143, 118, 166, 73, 29, 222, 21],
+    );
+}
+impl ::std::convert::From<_IInkStrokesEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IInkStrokesEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IInkStrokesEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IInkStrokesEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IInkStrokesEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &_IInkStrokesEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IInkStrokesEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: _IInkStrokesEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IInkStrokesEvents> for super::super::System::OleAutomation::IDispatch {
+    fn from(value: &_IInkStrokesEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IInkStrokesEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IInkStrokesEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IInkStrokesEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const _IMathInputControlEvents: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IMathInputControlEvents(::windows::runtime::IUnknown);
+impl _IMathInputControlEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IMathInputControlEvents {
+    type Vtable = _IMathInputControlEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
         1748186805,
         42109,
         17240,
         [150, 249, 135, 90, 71, 42, 231, 10],
     );
-pub const _IPenInputPanelEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3085208026,
-    14105,
-    17311,
-    [132, 143, 231, 172, 189, 130, 15, 23],
+}
+impl ::std::convert::From<_IMathInputControlEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IMathInputControlEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IMathInputControlEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IMathInputControlEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for _IMathInputControlEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &_IMathInputControlEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IMathInputControlEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: _IMathInputControlEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IMathInputControlEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: &_IMathInputControlEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IMathInputControlEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IMathInputControlEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IMathInputControlEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
+);
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct _IPenInputPanelEvents(::windows::runtime::IUnknown);
+impl _IPenInputPanelEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for _IPenInputPanelEvents {
+    type Vtable = _IPenInputPanelEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        3085208026,
+        14105,
+        17311,
+        [132, 143, 231, 172, 189, 130, 15, 23],
+    );
+}
+impl ::std::convert::From<_IPenInputPanelEvents> for ::windows::runtime::IUnknown {
+    fn from(value: _IPenInputPanelEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&_IPenInputPanelEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &_IPenInputPanelEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for _IPenInputPanelEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &_IPenInputPanelEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<_IPenInputPanelEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: _IPenInputPanelEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&_IPenInputPanelEvents>
+    for super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: &_IPenInputPanelEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for _IPenInputPanelEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+    for &_IPenInputPanelEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct _IPenInputPanelEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
 #[derive(
     :: std :: cmp :: PartialEq,

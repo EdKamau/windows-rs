@@ -1937,32 +1937,828 @@ pub const DRIVE_RAMDISK: u32 = 6u32;
 pub const DRIVE_REMOTE: u32 = 4u32;
 pub const DRIVE_REMOVABLE: u32 = 2u32;
 pub const DRIVE_UNKNOWN: u32 = 0u32;
-pub const DShellNameSpaceEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1427335174,
-    45790,
-    4561,
-    [185, 242, 0, 160, 201, 139, 197, 71],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct DShellNameSpaceEvents(::windows::runtime::IUnknown);
+impl DShellNameSpaceEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for DShellNameSpaceEvents {
+    type Vtable = DShellNameSpaceEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        1427335174,
+        45790,
+        4561,
+        [185, 242, 0, 160, 201, 139, 197, 71],
+    );
+}
+impl ::std::convert::From<DShellNameSpaceEvents> for ::windows::runtime::IUnknown {
+    fn from(value: DShellNameSpaceEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DShellNameSpaceEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &DShellNameSpaceEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DShellNameSpaceEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
+    for &DShellNameSpaceEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<DShellNameSpaceEvents> for super::OleAutomation::IDispatch {
+    fn from(value: DShellNameSpaceEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&DShellNameSpaceEvents> for super::OleAutomation::IDispatch {
+    fn from(value: &DShellNameSpaceEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for DShellNameSpaceEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for &DShellNameSpaceEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct DShellNameSpaceEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const DShellWindowsEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4265674464,
-    14746,
-    4560,
-    [164, 140, 0, 160, 201, 10, 143, 57],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct DShellWindowsEvents(::windows::runtime::IUnknown);
+impl DShellWindowsEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for DShellWindowsEvents {
+    type Vtable = DShellWindowsEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        4265674464,
+        14746,
+        4560,
+        [164, 140, 0, 160, 201, 10, 143, 57],
+    );
+}
+impl ::std::convert::From<DShellWindowsEvents> for ::windows::runtime::IUnknown {
+    fn from(value: DShellWindowsEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DShellWindowsEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &DShellWindowsEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DShellWindowsEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DShellWindowsEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<DShellWindowsEvents> for super::OleAutomation::IDispatch {
+    fn from(value: DShellWindowsEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&DShellWindowsEvents> for super::OleAutomation::IDispatch {
+    fn from(value: &DShellWindowsEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for DShellWindowsEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for &DShellWindowsEvents
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct DShellWindowsEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
 pub const DTR_CONTROL_DISABLE: u32 = 0u32;
 pub const DTR_CONTROL_ENABLE: u32 = 1u32;
 pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
-pub const DWebBrowserEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3937544898,
-    12481,
-    4559,
-    [167, 235, 0, 0, 192, 91, 174, 11],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct DWebBrowserEvents(::windows::runtime::IUnknown);
+impl DWebBrowserEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for DWebBrowserEvents {
+    type Vtable = DWebBrowserEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        3937544898,
+        12481,
+        4559,
+        [167, 235, 0, 0, 192, 91, 174, 11],
+    );
+}
+impl ::std::convert::From<DWebBrowserEvents> for ::windows::runtime::IUnknown {
+    fn from(value: DWebBrowserEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DWebBrowserEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &DWebBrowserEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DWebBrowserEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DWebBrowserEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<DWebBrowserEvents> for super::OleAutomation::IDispatch {
+    fn from(value: DWebBrowserEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&DWebBrowserEvents> for super::OleAutomation::IDispatch {
+    fn from(value: &DWebBrowserEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for DWebBrowserEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &DWebBrowserEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct DWebBrowserEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
-pub const DWebBrowserEvents2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    883365280,
-    25991,
-    4560,
-    [146, 74, 0, 32, 175, 199, 172, 77],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct DWebBrowserEvents2(::windows::runtime::IUnknown);
+impl DWebBrowserEvents2 {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
+        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for DWebBrowserEvents2 {
+    type Vtable = DWebBrowserEvents2_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        883365280,
+        25991,
+        4560,
+        [146, 74, 0, 32, 175, 199, 172, 77],
+    );
+}
+impl ::std::convert::From<DWebBrowserEvents2> for ::windows::runtime::IUnknown {
+    fn from(value: DWebBrowserEvents2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&DWebBrowserEvents2> for ::windows::runtime::IUnknown {
+    fn from(value: &DWebBrowserEvents2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for DWebBrowserEvents2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &DWebBrowserEvents2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<DWebBrowserEvents2> for super::OleAutomation::IDispatch {
+    fn from(value: DWebBrowserEvents2) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&DWebBrowserEvents2> for super::OleAutomation::IDispatch {
+    fn from(value: &DWebBrowserEvents2) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for DWebBrowserEvents2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+    for &DWebBrowserEvents2
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+                ::std::clone::Clone::clone(self),
+            ),
+        )
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct DWebBrowserEvents2_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
 pub const DefaultBrowserSyncSettings: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(

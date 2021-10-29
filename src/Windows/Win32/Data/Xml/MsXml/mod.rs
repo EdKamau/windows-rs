@@ -45984,11 +45984,220 @@ unsafe impl ::windows::runtime::Abi for XHR_PROPERTY {
 }
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 pub const XHR_PROP_ONDATA_NEVER: u64 = 18446744073709551615u64;
-pub const XMLDOMDocumentEvents: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1056613415,
-    10031,
-    4562,
-    [131, 111, 0, 0, 248, 122, 119, 130],
+#[repr(transparent)]
+#[derive(
+    :: std :: cmp :: PartialEq,
+    :: std :: cmp :: Eq,
+    :: std :: clone :: Clone,
+    :: std :: fmt :: Debug,
+)]
+pub struct XMLDOMDocumentEvents(::windows::runtime::IUnknown);
+impl XMLDOMDocumentEvents {
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
+        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(
+            ::std::mem::transmute_copy(self),
+            &mut result__,
+        )
+        .from_abi::<u32>(result__)
+    }
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub unsafe fn GetTypeInfo(
+        &self,
+        itinfo: u32,
+        lcid: u32,
+    ) -> ::windows::runtime::Result<super::super::super::System::OleAutomation::ITypeInfo> {
+        let mut result__ : < super::super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        (::windows::runtime::Interface::vtable(self).4)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(itinfo),
+            ::std::mem::transmute(lcid),
+            &mut result__,
+        )
+        .from_abi::<super::super::super::System::OleAutomation::ITypeInfo>(result__)
+    }
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(
+        &self,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(rgsznames),
+            ::std::mem::transmute(cnames),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(rgdispid),
+        )
+        .ok()
+    }
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub unsafe fn Invoke(
+        &self,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut super::super::super::System::OleAutomation::VARIANT,
+        pexcepinfo: *mut super::super::super::System::OleAutomation::EXCEPINFO,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(
+            ::std::mem::transmute_copy(self),
+            ::std::mem::transmute(dispidmember),
+            ::std::mem::transmute(riid),
+            ::std::mem::transmute(lcid),
+            ::std::mem::transmute(wflags),
+            ::std::mem::transmute(pdispparams),
+            ::std::mem::transmute(pvarresult),
+            ::std::mem::transmute(pexcepinfo),
+            ::std::mem::transmute(puargerr),
+        )
+        .ok()
+    }
+}
+unsafe impl ::windows::runtime::Interface for XMLDOMDocumentEvents {
+    type Vtable = XMLDOMDocumentEvents_abi;
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
+        1056613415,
+        10031,
+        4562,
+        [131, 111, 0, 0, 248, 122, 119, 130],
+    );
+}
+impl ::std::convert::From<XMLDOMDocumentEvents> for ::windows::runtime::IUnknown {
+    fn from(value: XMLDOMDocumentEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+impl ::std::convert::From<&XMLDOMDocumentEvents> for ::windows::runtime::IUnknown {
+    fn from(value: &XMLDOMDocumentEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
+        )
+    }
+}
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &XMLDOMDocumentEvents {
+    fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+        ::windows::runtime::Param::Owned(
+            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
+                self,
+            )),
+        )
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<XMLDOMDocumentEvents>
+    for super::super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: XMLDOMDocumentEvents) -> Self {
+        unsafe { ::std::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl ::std::convert::From<&XMLDOMDocumentEvents>
+    for super::super::super::System::OleAutomation::IDispatch
+{
+    fn from(value: &XMLDOMDocumentEvents) -> Self {
+        ::std::convert::From::from(::std::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::OleAutomation::IDispatch>
+    for XMLDOMDocumentEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::super::System::OleAutomation::IDispatch,
+        >::into(self))
+    }
+}
+#[cfg(feature = "Win32_System_OleAutomation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::OleAutomation::IDispatch>
+    for &XMLDOMDocumentEvents
+{
+    fn into_param(
+        self,
+    ) -> ::windows::runtime::Param<'a, super::super::super::System::OleAutomation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<
+            super::super::super::System::OleAutomation::IDispatch,
+        >::into(::std::clone::Clone::clone(self)))
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct XMLDOMDocumentEvents_abi(
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        iid: &::windows::runtime::GUID,
+        interface: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        pctinfo: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_OleAutomation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        itinfo: u32,
+        lcid: u32,
+        pptinfo: *mut ::windows::runtime::RawPtr,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        riid: *const ::windows::runtime::GUID,
+        rgsznames: *const super::super::super::Foundation::PWSTR,
+        cnames: u32,
+        lcid: u32,
+        rgdispid: *mut i32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))] usize,
+    #[cfg(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    ))]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        dispidmember: i32,
+        riid: *const ::windows::runtime::GUID,
+        lcid: u32,
+        wflags: u16,
+        pdispparams: *const super::super::super::System::OleAutomation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<
+            super::super::super::System::OleAutomation::VARIANT,
+        >,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<
+            super::super::super::System::OleAutomation::EXCEPINFO,
+        >,
+        puargerr: *mut u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(
+        feature = "Win32_Foundation",
+        feature = "Win32_System_OleAutomation",
+        feature = "Win32_System_SystemServices"
+    )))]
+    usize,
 );
 pub const XMLDSOControl: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
     1426971184,
